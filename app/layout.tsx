@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fraunces = Fraunces({
   subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -17,13 +19,12 @@ export const metadata: Metadata = {
   description: "Portfolio of Sk Wasef Mostafa (Raze), software developer.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${fraunces.variable} ${jetbrains.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

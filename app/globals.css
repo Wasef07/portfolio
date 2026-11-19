@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
+/* One colour story: the page gets deeper from the pond surface to the footer. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --c0: #061a2e;
+  --c1: #082f52;
+  --c2: #07243f;
+  --c3: #061b31;
+  --c4: #05121f;
+  --ink: #eaf4fa;
+  --ink2: #b7d3e3;
+  --line: rgba(170, 215, 240, 0.24);
+  --card: rgba(255, 255, 255, 0.04);
+  --navbg: rgba(6, 26, 46, 0.78);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-c0: var(--c0);
+  --color-c1: var(--c1);
+  --color-c2: var(--c2);
+  --color-c3: var(--c3);
+  --color-c4: var(--c4);
+  --color-ink: var(--ink);
+  --color-ink2: var(--ink2);
+  --color-line: var(--line);
+  --color-card: var(--card);
+  --color-navbg: var(--navbg);
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--c4);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+  h1,
+  h2 {
+    font-weight: 300;
+  }
+  h3 {
+    font-weight: 400;
+  }
+  section,
+  footer {
+    scroll-margin-top: 72px;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid #ff7a2f;
+    outline-offset: 3px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
