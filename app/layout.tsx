@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -17,6 +17,10 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Sk Wasef Mostafa · Software developer",
   description: "Portfolio of Sk Wasef Mostafa (Raze), software developer.",
+};
+
+export const viewport: Viewport = {
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
