@@ -70,3 +70,65 @@
     scroll-behavior: auto;
   }
 }
+
+/* ---------- Hero ---------- */
+.hero-bg {
+  background:
+    radial-gradient(
+      ellipse 80% 70% at 50% 0%,
+      rgba(24, 92, 128, 0.85),
+      rgba(24, 92, 128, 0) 75%
+    ),
+    linear-gradient(180deg, #0b2b45 0%, #07203a 60%, var(--c0) 100%);
+}
+
+/* soft dark glow behind the text so the fish never fight the name */
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  inset: -20% -25%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(4, 16, 30, 0.62) 0%,
+    rgba(4, 16, 30, 0.35) 38%,
+    rgba(4, 16, 30, 0) 68%
+  );
+}
+
+/* thin lines on both sides of the role text */
+.role-line::before,
+.role-line::after {
+  content: "";
+  width: clamp(28px, 6vw, 76px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(207, 230, 244, 0),
+    rgba(207, 230, 244, 0.75)
+  );
+}
+.role-line::after {
+  transform: scaleX(-1);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+}
