@@ -1,10 +1,11 @@
+import Pond from "@/components/Pond";
 export default function Hero() {
   return (
     <header
       id="top"
       className="hero-bg relative flex h-svh min-h-[640px] touch-pan-y items-center justify-center overflow-hidden text-center"
     >
-      {/* Commit 5 adds the koi canvas here */}
+      <Pond />
 
       <div className="hero-glow pointer-events-none relative z-10 max-w-[1100px] px-6 pt-20">
         <h1
